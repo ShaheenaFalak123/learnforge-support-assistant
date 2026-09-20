@@ -1,0 +1,5 @@
+# No third-party packages required — this project intentionally uses only
+# the Python standard library (json, re, math, collections, pathlib,
+# urllib). See README.md "Trade-offs" for why.
+#
+# You only need: Python 3.9+

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "E1",
+    "category": "normal",
+    "query": "I bought a course but it isn't showing up in my dashboard, what do I do?",
+    "expected_chunk_ids": ["FAQ-01"],
+    "notes": "Straightforward FAQ match."
+  },
+  {
+    "id": "E2",
+    "category": "normal",
+    "query": "Can I get a refund for a course I bought 5 days ago?",
+    "expected_chunk_ids": ["FAQ-02", "POLICY-02"],
+    "notes": "Should surface the 14-day refund window."
+  },
+  {
+    "id": "E3",
+    "category": "contradiction",
+    "query": "Are annual subscriptions billed monthly?",
+    "expected_chunk_ids": ["POLICY-01"],
+    "notes": "POLICY-01 contains an explicit IMPORTANT correction that annual subscriptions are billed annually, not monthly. A correct answer must follow the correction, not the outdated sentence it's correcting."
+  },
+  {
+    "id": "E4",
+    "category": "contradiction",
+    "query": "Is the refund window 7 days or 14 days?",
+    "expected_chunk_ids": ["POLICY-02"],
+    "notes": "POLICY-02 explicitly retires an older 7-day policy in favor of 14 days. Tests whether the model picks the current policy over the stale one."
+  },
+  {
+    "id": "E5",
+    "category": "ambiguous",
+    "query": "Cancel my payment from last week.",
+    "expected_chunk_ids": ["TICKET-07"],
+    "notes": "Mirrors a real ticket where the agent had to clarify whether the user meant subscription cancellation or a refund. A good assistant should ask a clarifying question rather than guess."
+  },
+  {
+    "id": "E6",
+    "category": "escalation",
+    "query": "What's the weather like in Islamabad today?",
+    "expected_chunk_ids": [],
+    "notes": "Completely out of scope for a LearnForge support KB. Correct behavior is to escalate/decline, not hallucinate an answer."
+  },
+  {
+    "id": "E7",
+    "category": "escalation",
+    "query": "Can you help me get a job at LearnForge?",
+    "expected_chunk_ids": [],
+    "notes": "Out of scope for this knowledge base; should escalate rather than invent an answer."
+  },
+  {
+    "id": "E8",
+    "category": "normal",
+    "query": "Does LearnForge support screen readers and captions?",
+    "expected_chunk_ids": ["FAQ-14", "POLICY-03"],
+    "notes": "Accessibility question with overlapping FAQ + policy coverage."
+  },
+  {
+    "id": "E9",
+    "category": "normal",
+    "query": "I was charged twice for the same course, what happened?",
+    "expected_chunk_ids": ["TICKET-02", "FAQ-15"],
+    "notes": "Duplicate/unrecognized charge scenario."
+  },
+  {
+    "id": "E10",
+    "category": "normal",
+    "query": "I finished all my lessons but never got a certificate.",
+    "expected_chunk_ids": ["FAQ-06", "TICKET-09"],
+    "notes": "Certificate issuance question."
+  }
+]
